@@ -13,7 +13,11 @@ import java.util.UUID;
 @Controller("api/v1/basic")
 public class BasicController {
 
-    private BasicService basicService;
+    private final BasicService basicService;
+
+    public BasicController(BasicService basicService) {
+        this.basicService = basicService;
+    }
 
     @Get
     public List<BasicDto> getAll() {

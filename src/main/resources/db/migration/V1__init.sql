@@ -3,7 +3,7 @@ CREATE SCHEMA IF NOT EXISTS basic;
 CREATE TABLE IF NOT EXISTS basic (
     id                  UUID PRIMARY KEY,
     name                TEXT NOT NULL,
-    description         TEST
+    description         TEXT
 );
 
 CREATE TABLE IF NOT EXISTS sub_basic (

@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: basic
+
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+    dialect: POSTGRES
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.example'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+
+flyway:
+  datasources:
+    default:
+      enabled: true

@@ -15,22 +15,37 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
+    annotationProcessor("io.micronaut:micronaut-inject-java")
+    annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+
 
     compileOnly("io.micronaut:micronaut-http-client")
     compileOnly("org.projectlombok:lombok")
 
     implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("io.micronaut:micronaut-inject:4.8.11")
-    implementation("io.micronaut:micronaut-runtime:4.8.11")
-    implementation("io.micronaut.data:micronaut-data-model:4.12.0")
-    implementation("io.micronaut.data:micronaut-data-tx-hibernate:4.12.0")
+    implementation("io.micronaut:micronaut-inject")
+    implementation("io.micronaut:micronaut-runtime")
+    implementation("io.micronaut.data:micronaut-data-model")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
     implementation("io.micronaut.flyway:micronaut-flyway")
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
     implementation("org.mapstruct:mapstruct:1.6.3")
+    implementation("org.mapstruct:mapstruct-processor:1.6.3")
+    implementation("org.postgresql:postgresql:42.7.5")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("io.micronaut.data:micronaut-data-jdbc:4.12.0")
+    runtimeOnly("io.micronaut.data:micronaut-data-jdbc")
+    runtimeOnly("org.flywaydb:flyway-database-postgresql")
+    runtimeOnly("org.yaml:snakeyaml")
+    runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
+
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
 
     testImplementation("io.micronaut:micronaut-http-client")
     testImplementation("org.testcontainers:postgresql:1.20.6")
+    testImplementation("io.micronaut.test:micronaut-test-rest-assured")
+    testImplementation("org.assertj:assertj-core")
 }
 
 
@@ -70,5 +85,3 @@ micronaut {
 tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
     jdkVersion = "21"
 }
-
-

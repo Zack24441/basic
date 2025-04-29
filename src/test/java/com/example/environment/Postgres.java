@@ -12,9 +12,9 @@ public interface Postgres {
 
     default Map<String, String> getPostgresProperties() {
         Map<String, String> prop = new HashMap<>();
-        prop.put("datasource.default.url", DB.getJdbcUrl());
-        prop.put("datasource.default.username", DB.getUsername());
-        prop.put("datasource.default.password", DB.getPassword());
+        prop.put("datasources.default.url", DB.getJdbcUrl());
+        prop.put("datasources.default.username", DB.getUsername());
+        prop.put("datasources.default.password", DB.getPassword());
         return prop;
     }
 }
