@@ -9,6 +9,7 @@ datasources:
     password: postgres
     driverClassName: org.postgresql.Driver
     dialect: POSTGRES
+    schema: basic
 
 jpa:
   default:

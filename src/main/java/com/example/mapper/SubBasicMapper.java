@@ -17,5 +17,6 @@ public abstract class SubBasicMapper {
     public abstract List<SubBasic> toModel(List<SubBasicDto> subBasicDtos);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "basic", ignore = true) //after mapping does this setting
     public abstract SubBasic toModel(SubBasicDto subBasicDto);
 }
