@@ -1,14 +1,10 @@
 package com.example.model;
 
-import io.micronaut.serde.annotation.Serdeable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.UUID;
 
-@Serdeable
 @Entity
 @Data
 public class SubBasic {
@@ -18,4 +14,7 @@ public class SubBasic {
     private UUID id;
     private int x;
     private int y;
+    @ManyToOne
+    @JoinColumn(name = "basic_id")
+    private Basic basic;
 }

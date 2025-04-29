@@ -1,10 +1,9 @@
 package com.example.dto;
 
-import lombok.Data;
+import io.micronaut.core.annotation.Introspected;
+import io.micronaut.serde.annotation.Serdeable;
 
-@Data
-public class SubBasicDto {
-
-    private int x;
-    private int y;
+@Serdeable
+@Introspected
+public record SubBasicDto(int x, int y) {
 }

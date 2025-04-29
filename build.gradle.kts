@@ -2,6 +2,7 @@ plugins {
     id("io.micronaut.application") version "4.5.3"
     id("com.gradleup.shadow") version "8.3.6"
     id("io.micronaut.aot") version "4.5.3"
+    id("io.freefair.lombok") version "8.13.1"
 }
 
 version = "0.1"
@@ -19,10 +20,10 @@ dependencies {
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 
-
     compileOnly("io.micronaut:micronaut-http-client")
-    compileOnly("org.projectlombok:lombok")
+    compileOnly("com.fasterxml.jackson.core:jackson-databind")
 
+    implementation("org.projectlombok:lombok")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut:micronaut-inject")
     implementation("io.micronaut:micronaut-runtime")
@@ -40,7 +41,10 @@ dependencies {
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
 
+    testAnnotationProcessor("org.projectlombok:lombok")
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+
+    testImplementation("org.projectlombok:lombok")
 
     testImplementation("io.micronaut:micronaut-http-client")
     testImplementation("org.testcontainers:postgresql:1.20.6")

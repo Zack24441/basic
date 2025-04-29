@@ -2,10 +2,9 @@ package com.example.controller;
 
 import com.example.dto.BasicDto;
 import com.example.service.BasicService;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.PathVariable;
-import io.micronaut.http.annotation.Post;
+import io.micronaut.http.HttpStatus;
+import io.micronaut.http.MediaType;
+import io.micronaut.http.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +29,9 @@ public class BasicController {
     }
 
     @Post
-    public void save(BasicDto basicDto) {
-        basicService.save(basicDto);
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Status(HttpStatus.CREATED)
+    public BasicDto save(@Body BasicDto basicDto) {
+        return basicService.save(basicDto);
     }
 }
